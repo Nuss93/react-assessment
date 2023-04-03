@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './assets/css/App.css';
+import React, { useState } from 'react';
+// import logo from '../assets/img/logo.svg';
+import '../assets/css/App.css';
+import Header from '../components/Header';
+import Map from './Map';
+import History from './History';
 
 function App() {
+  const [displayCase, setDisplayCase] = useState(1)
+
+  const selectFunction = () => {
+
+  }
+  
+  const _renderContent = () => {
+    let display = displayCase === 1 ? <Map /> : <History />
+    return display;
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      {_renderContent()}
     </div>
   );
 }
