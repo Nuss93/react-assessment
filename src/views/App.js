@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 // import logo from '../assets/img/logo.svg';
 import '../assets/css/App.css';
 import Header from '../components/Header';
-import Map from './Map';
+import MapsWithPackage from './MapsWithPackage';
+import MapsWithoutPackage from './MapsWithoutPackage';
 import History from './History';
 
 function App() {
@@ -14,7 +15,19 @@ function App() {
   }
   
   const _renderContent = () => {
-    let display = displayCase === 1 ? <Map /> : <History />
+    let display
+    switch (displayCase) {
+      case 1:
+        display = <MapsWithoutPackage />
+        break;
+      case 2:
+        display = <MapsWithPackage />
+        break;
+      case 3:
+        display = <History />
+      default:
+        break;
+    }
     return display;
   }
 

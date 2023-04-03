@@ -1,19 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Dropdown, Button, Space, message, Row, Col, Typography } from 'antd'
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 
 const { Title } = Typography;
 
 export default function Header(props) {
+    const [current, setCurrent] = useState('Maps')
+
     const handleMenuClick = (e) => {
         let select = Number(e.key)
         // console.log('click', e);
         switch (select) {
             case 1:
-                message.info('Switched to Maps');
+                setCurrent('Maps');
+                message.info('Switched to Maps', 0.7);
                 break;
             case 2:
-                message.info('Switched to History');
+                setCurrent('Maps NPM Package');
+                message.info('Switched to Maps 2', 0.7);
+                break;
+            case 3:
+                setCurrent('History');
+                message.info('Switched to History', 0.7);
+                break;
             default:
                 break;
         }
@@ -26,8 +35,13 @@ export default function Header(props) {
             icon: <UserOutlined />,
         },
         {
-            label: 'History',
+            label: 'Maps NPM Package',
             key: '2',
+            icon: <UserOutlined />,
+        },
+        {
+            label: 'History',
+            key: '3',
             icon: <UserOutlined />,
         }
     ];
@@ -38,13 +52,13 @@ export default function Header(props) {
   return (
     <Row justify={'space-between'} align={'middle'}>
         <Col>
-            <Title>The Map</Title>
+            <Title style={{margin:0}}>The Map</Title>
         </Col>
         <Col>
             <Dropdown menu={menuProps}>
                 <Button>
                     <Space>
-                        Button
+                        {current}
                         <DownOutlined />
                     </Space>
                 </Button>
