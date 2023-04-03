@@ -1,9 +1,7 @@
-import React, { Component, useState } from 'react'
-import { Card, Typography } from 'antd'
+import React, { useState } from 'react'
+import { Card } from 'antd'
 import GooglePlacesAutocomplete, { geocodeByPlaceId, geocodeByAddress, getLatLng } from 'react-google-places-autocomplete';
 import GoogleMapReact from 'google-map-react';
-
-const { Title } = Typography
 
 const MarkerComponent = () => <div className='marker'/>;
 
@@ -20,13 +18,13 @@ export default function Map() {
 
   const mapSelected = (e) => {
     let place_id = e.value.place_id
-    console.log(e);
+    // console.log(e);
 
     geocodeByPlaceId(place_id)
     .then(results => getLatLng(results[0]))
     .then(({ lat, lng }) => {
       let newCenter = { lat, lng }
-      console.log('success', newCenter)
+      // console.log('success', newCenter)
       setCenter(newCenter)
     })
     .catch(error => console.error('error', error))
@@ -34,7 +32,7 @@ export default function Map() {
 
   return (
     <div>
-      <Card title='Maps' style={{zIndex:10, position: 'relative'}} headStyle={{fontSize:'3rem'}}>
+      <Card title='Search for a location' style={{zIndex:10, position: 'relative'}} headStyle={{fontSize:'2.5rem'}}>
         {/* Autocomplete text input package */}
         <GooglePlacesAutocomplete
           selectProps={{ onChange: mapSelected }}
@@ -49,7 +47,7 @@ export default function Map() {
           defaultZoom={defaultProps.zoom}
           center={center}
           options={{
-            scrollwheel: false, gestureHandling: 'none', disableDefaultUI: true,
+            scrollwheel: false, disableDefaultUI: true,
           }}
         >
           <MarkerComponent 
