@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react'
-import { Typography } from 'antd'
+import { Card, Typography } from 'antd'
 import GooglePlacesAutocomplete, { geocodeByPlaceId, geocodeByAddress, getLatLng } from 'react-google-places-autocomplete';
 import GoogleMapReact from 'google-map-react';
 
@@ -34,20 +34,23 @@ export default function Map() {
 
   return (
     <div>
-      <Title>Maps using NPM package</Title>
-
-      {/* Autocomplete text input package */}
-      <GooglePlacesAutocomplete
-        selectProps={{ onChange: mapSelected }}
-      />
+      <Card title='Maps' style={{zIndex:10, position: 'relative'}} headStyle={{fontSize:'3rem'}}>
+        {/* Autocomplete text input package */}
+        <GooglePlacesAutocomplete
+          selectProps={{ onChange: mapSelected }}
+        />
+      </Card>
 
       {/* Google-maps-react package */}
-      <div style={{ height: '100vh', width: '100%' }}>
+      <div style={{ height: '100vh', width: '100%', position: 'absolute', top: 0, left: 0, zIndex:1 }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyACDDkHRiG4K-SJSw6RYdC-Ai0l_qid7Mw" }}
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
           center={center}
+          options={{
+            scrollwheel: false, gestureHandling: 'none', disableDefaultUI: true,
+          }}
         >
           <MarkerComponent 
             lat={center.lat}

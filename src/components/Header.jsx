@@ -50,7 +50,7 @@ export default function Header(props) {
         onClick: handleMenuClick,
     };
   return (
-    <Row justify={'space-between'} align={'middle'}>
+    <Row justify={'space-between'} align={'middle'} style={{zIndex:10, position: 'relative'}}>
         <Col>
             <Title style={{margin:0}}>The Map</Title>
         </Col>
