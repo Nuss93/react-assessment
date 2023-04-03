@@ -28,6 +28,7 @@ function App() {
   return (
     <div className="App">
       <Header selectParentFunction={selectFunction} />
+      
       {_renderContent()}
     </div>
   );

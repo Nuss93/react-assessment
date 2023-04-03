@@ -12,11 +12,11 @@ export default function Header(props) {
         switch (select) {
             case 1:
                 setCurrent('Maps');
-                message.info('Switched to Maps', 0.7);
+                message.warning('Switched to Maps', 0.7);
                 break;
             case 2:
                 setCurrent('History');
-                message.info('Switched to History', 0.7);
+                message.warning('Switched to History', 0.7);
                 break;
             default:
                 break;
