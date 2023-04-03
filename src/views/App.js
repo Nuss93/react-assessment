@@ -8,8 +8,9 @@ import History from './History';
 function App() {
   const [displayCase, setDisplayCase] = useState(1)
 
-  const selectFunction = () => {
-
+  const selectFunction = (select) => {
+    console.log('returned', select);
+    setDisplayCase(select);
   }
   
   const _renderContent = () => {
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header selectParentFunction={selectFunction} />
       {_renderContent()}
     </div>
   );
