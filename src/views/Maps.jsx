@@ -22,7 +22,6 @@ export default function Map() {
 
   const mapSelected = (e) => {
     let place_id = e.value.place_id
-    // console.log(e);
 
     geocodeByPlaceId(place_id)
     .then(results => getLatLng(results[0]))
