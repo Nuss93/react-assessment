@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Main maps page
 ![maps page](src/assets/img/map_page.jpeg)
 
-Seacrhing location using Google Autocomplete
+Searching location using Google Autocomplete
 ![maps search](src/assets/img/map_search.png)
 
 ## History page
