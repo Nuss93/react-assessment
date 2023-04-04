@@ -3,6 +3,7 @@ import '../assets/css/App.css';
 import Header from '../components/Header';
 import MapsWithPackage from './Maps';
 import History from './History';
+import Footer from '../components/Footer';
 
 function App() {
   const [displayCase, setDisplayCase] = useState(1)
@@ -30,6 +31,8 @@ function App() {
       <Header selectParentFunction={selectFunction} />
       
       {_renderContent()}
+
+      <Footer />
     </div>
   );
 }
