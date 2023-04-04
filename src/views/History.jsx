@@ -16,14 +16,14 @@ export default function History() {
     let display =
     <div>
       <Row justify='space-between' align='middle'>
-        <Col span={12}>
+        <Col md={12}  sm={24}>
           <Title level={3} style={{textAlign:'left', margin:0}}>{data.terms[0].value}</Title>
           <small style={{textAlign:'left', display:'block'}}>Place ID : {data.place_id}</small>
         </Col>
-        <Col span={11} className='flex-right'>
+        <Col md={11}  sm={24} className='flex-right'>
           {data.types.map((data, index) => <Tag key={index} color='processing'>{data}</Tag>)}
         </Col>
-        <Col span={1}>
+        <Col md={1} sm={24}> 
           <Button type='text' danger onClick={() => {
             dispatch(remove(data.index))
             console.log(history);
