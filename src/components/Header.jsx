@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import logo from '../assets/img/logo.svg'
 import { Dropdown, Button, Space, message, Row, Col  } from 'antd'
-import { DownOutlined, UserOutlined } from '@ant-design/icons';
+import { DownOutlined, HistoryOutlined, PushpinOutlined } from '@ant-design/icons';
 
 export default function Header(props) {
     const [current, setCurrent] = useState('Maps')
@@ -27,12 +27,12 @@ export default function Header(props) {
         {
             label: 'Maps',
             key: '1',
-            icon: <UserOutlined />,
+            icon: <PushpinOutlined />,
         },
         {
             label: 'History',
             key: '2',
-            icon: <UserOutlined />,
+            icon: <HistoryOutlined />,
         }
     ];
     const menuProps = {
