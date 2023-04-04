@@ -31,3 +31,8 @@ code {
   top: 25px;
   transform: translateX(-50%);
 }
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

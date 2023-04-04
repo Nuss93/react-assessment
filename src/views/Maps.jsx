@@ -31,8 +31,8 @@ export default function Map() {
   }
 
   return (
-    <div>
-      <Card title='Search for a location' style={{zIndex:10, position: 'relative'}} headStyle={{fontSize:'2.5rem'}}>
+    <div className='flex-center'>
+      <Card title='Search for a location' style={{zIndex:10, position: 'relative', width: '85%'}} headStyle={{fontSize:'2.5rem'}}>
         {/* Autocomplete text input package */}
         <GooglePlacesAutocomplete
           selectProps={{ onChange: mapSelected }}
