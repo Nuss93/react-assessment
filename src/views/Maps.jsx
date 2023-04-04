@@ -2,10 +2,14 @@ import React, { useState } from 'react'
 import { Card } from 'antd'
 import GooglePlacesAutocomplete, { geocodeByPlaceId, geocodeByAddress, getLatLng } from 'react-google-places-autocomplete';
 import GoogleMapReact from 'google-map-react';
+import { useDispatch } from 'react-redux';
+import { add } from '../features/historySlice';
 
 const MarkerComponent = () => <div className='marker'/>;
 
 export default function Map() {
+  const dispatch = useDispatch();
+
   const defaultProps = {
     center: {
       lat: 3.147498156081217,
@@ -29,6 +33,7 @@ export default function Map() {
         ...newCenter
       }
       console.log('data', toStore)
+      dispatch(add(toStore))
       setCenter(newCenter)
     })
     .catch(error => console.error('error', error))

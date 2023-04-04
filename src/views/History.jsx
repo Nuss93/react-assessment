@@ -1,6 +1,8 @@
 import React from 'react'
 import ListItem from '../components/ListItem'
 import { Card } from 'antd'
+import { useSelector } from 'react-redux'
+import { selectHistory } from '../features/historySlice'
 
 const sampleData = [
   {
@@ -56,15 +58,18 @@ const sampleData = [
 ]
 
 export default function History() {
+  const history = useSelector(selectHistory)
+  
   const _renderItemChild = (data) => {
-    console.log('here', data);
+    console.log('here', history);
     let display = <div style={{backgroundColor:'red', padding:'2rem'}}>{data.description}</div>
     return display
   }
+  // console.log(history);
   return (
     <div>
       <Card title='Things you have searched for' style={{zIndex:10, position: 'relative'}} headStyle={{fontSize:'2.5rem'}}>
-        {sampleData.map((data,index) => {
+        {history.map((data,index) => {
           return (
             <ListItem title={data.terms[0].value} children={_renderItemChild} data={data} key={index} />
           )
