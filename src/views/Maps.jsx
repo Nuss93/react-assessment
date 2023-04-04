@@ -24,7 +24,11 @@ export default function Map() {
     .then(results => getLatLng(results[0]))
     .then(({ lat, lng }) => {
       let newCenter = { lat, lng }
-      // console.log('success', newCenter)
+      let toStore = {
+        ...e.value,
+        ...newCenter
+      }
+      console.log('data', toStore)
       setCenter(newCenter)
     })
     .catch(error => console.error('error', error))
