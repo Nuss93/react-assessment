@@ -31,7 +31,7 @@ export default function Map() {
         ...e.value,
         ...newCenter
       }
-      console.log('data', toStore)
+      // console.log('data', toStore)
       dispatch(add(toStore))
       setCenter(newCenter)
     })
