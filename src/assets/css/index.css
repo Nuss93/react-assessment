@@ -41,3 +41,9 @@ code {
   justify-content: flex-end;
   align-items: center;
 }
+.list-item {
+  margin-bottom: 1.5rem;
+}
+.list-item:last-child {
+  margin-bottom: 0;
+}

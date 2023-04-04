@@ -27,7 +27,9 @@ export default function History() {
           <Button type='text' danger onClick={() => {
             dispatch(remove(data.index))
             console.log(history);
-          }}><DeleteTwoTone twoToneColor='red' /></Button>
+          }}>
+            <DeleteTwoTone twoToneColor='red' />
+          </Button>
         </Col>
       </Row>
     </div>
